@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "declaration": true,
+    "removeComments": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "target": "ES2020",
+    "sourceMap": true,
+    "allowJs": true,
+    "outDir": "./dist",
+    "baseUrl": "src/",
+    "jsx": "react",
+    "incremental": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "strictNullChecks": true,
+    "esModuleInterop": true,
+    "noImplicitAny": true,
+    "strictBindCallApply": false,
+    "forceConsistentCasingInFileNames": false,
+    "noFallthroughCasesInSwitch": false,
+    "strictPropertyInitialization": false,
+    "useDefineForClassFields": false
+  },
+  "watchOptions": {
+    "watchFile": "fixedPollingInterval"
+  }
+}
