@@ -24,52 +24,49 @@
 
 ## Description
 
-Сервис отчетов предназначен для хранения и взаимодействия с сохраненными отчетами Playwright.
-База данных - Postgresql
-Бэкнед - Nest.js
-UI для БД - PG_Admin
+[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## Installation and running the app
+## Installation
 
 ```bash
-$ docker-compose up -d
+$ npm install
 ```
-## Swagger documentation
 
-После запуска приложения можно перейти по адресу
+## Running the app
+
+```bash
+# development
+$ npm run start
+
+# watch mode
+$ npm run start:dev
+
+# production mode
+$ npm run start:prod
 ```
-http://localhost:3000/docs
-``` 
-(или по адресу, назначенному в процессе развертывания) и после указания учетных данных (находятся в .env сервера), можно получить доступ к swagger документации по API
 
-## Basic usage
+## Test
 
-1. Создайте своего пользователя или используйте учетные данные дефолтного пользователя (находятся в .env сервера) - через *POST* запрос на *"/users/signup"*
+```bash
+# unit tests
+$ npm run test
 
-2. Залогиньтесь - через *POST* запрос на *"/users/login"*
+# e2e tests
+$ npm run test:e2e
 
-3. Создайте свой конфиг для Cron задач или просто используйте дефолтный – через *POST* запрос *"/configs"*
-
-4. Упакуйте директорию с отчетом playwright в tar архив (можно использовать npm пакет https://www.npmjs.com/package/tar)
-
-5. Отправьте архив с отчетом в хранилище сервиса – через *POST* запрос *"/reports"*
-
-6. Посмотреть сохраненные данные по отчету, можно запросив список отчетов (*get* запрос на *"/reports?offset=0&limit=10*") или обратившись к нему напрямую (*GET* запрос на *"/reports/Id_отчета"*)
-
-7. Скачать tar архив отчета можно через *GET* запрос *"/reports/Id_отчета/files"*
-
-## Technical description
-
-1. Postman collection для тестирования и наладки сервиса находится в *./docs/report-service.postman_collection.json*
-
-2. Принципиальная схема сервиса 
-<img width="100%" title="Принципиальная схема сервиса" src="docs/PrincipalScheme.png">
-
-3. Отчеты хранятся заданный промежуток времени. Удаление устаревших отчетов осуществляется по Cron'у. Подробнее в swagger документации.
+# test coverage
+$ npm run test:cov
+```
 
 ## Support
 
 Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+
+## Stay in touch
+
+- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
+- Website - [https://nestjs.com](https://nestjs.com/)
+- Twitter - [@nestframework](https://twitter.com/nestframework)
 
 ## License
 

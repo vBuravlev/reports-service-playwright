@@ -1,0 +1,822 @@
+{
+	"info": {
+		"_postman_id": "dc35c478-51ff-47b6-8b53-ae2b778b8a02",
+		"name": "report-service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15835151"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "singup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin1\",\r\n    \"password\": \"admin123\",\r\n    \"email\": \"admin@admin.ru\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/{{apiPrefix}}/{{versionApi}}/users/signup",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"{{apiPrefix}}",
+								"{{versionApi}}",
+								"users",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"pass\",\r\n    \"email\": \"admin@email.ru\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/{{apiPrefix}}/{{versionApi}}/users/login",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"{{apiPrefix}}",
+								"{{versionApi}}",
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search-user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"admin2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/{{apiPrefix}}/{{versionApi}}/users/search",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"{{apiPrefix}}",
+								"{{versionApi}}",
+								"users",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login-check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/{{apiPrefix}}/{{versionApi}}/users/login-check",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"{{apiPrefix}}",
+								"{{versionApi}}",
+								"users",
+								"login-check"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-users",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/{{apiPrefix}}/{{versionApi}}/users",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"{{apiPrefix}}",
+								"{{versionApi}}",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/{{apiPrefix}}/{{versionApi}}/users/logout",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"{{apiPrefix}}",
+								"{{versionApi}}",
+								"users",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "reports",
+			"item": [
+				{
+					"name": "get-report-by-id",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/E:/otus/report-service/data/data.tar"
+								},
+								{
+									"key": "title",
+									"value": "Отчет по тестированию {{$guid}}",
+									"type": "text"
+								},
+								{
+									"key": "testProjectId",
+									"value": "{{$guid}}",
+									"type": "text"
+								},
+								{
+									"key": "testPlanId",
+									"value": "{{$guid}}",
+									"type": "text"
+								},
+								{
+									"key": "testRunId",
+									"value": "{{$guid}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/{{apiPrefix}}/{{versionApi}}/reports/16",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"{{apiPrefix}}",
+								"{{versionApi}}",
+								"reports",
+								"16"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-reports",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/{{apiPrefix}}/{{versionApi}}/reports?offset=0&limit=10",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"{{apiPrefix}}",
+								"{{versionApi}}",
+								"reports"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all-reports",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/{{apiPrefix}}/{{versionApi}}/reports/all",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"{{apiPrefix}}",
+								"{{versionApi}}",
+								"reports",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "upload-report",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/E:/otus/report-service/data/data2.tar"
+								},
+								{
+									"key": "title",
+									"value": "Отчет по тестированию {{$guid}}",
+									"type": "text"
+								},
+								{
+									"key": "test_project_id",
+									"value": "ae45-55gy-5jjr",
+									"type": "text"
+								},
+								{
+									"key": "test_plan_id",
+									"value": "{{$guid}}",
+									"type": "text"
+								},
+								{
+									"key": "test_run_id",
+									"value": "{{$guid}}",
+									"type": "text"
+								},
+								{
+									"key": "project_name",
+									"value": "test",
+									"type": "text"
+								},
+								{
+									"key": "is_delete",
+									"value": "false",
+									"contentType": "",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/{{apiPrefix}}/{{versionApi}}/reports",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"{{apiPrefix}}",
+								"{{versionApi}}",
+								"reports"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search-reports",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"test_run_id\": \"60e2cae9-3c7f-4a19-849c-c5dccbed08eb\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/{{apiPrefix}}/{{versionApi}}/reports/search",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"{{apiPrefix}}",
+								"{{versionApi}}",
+								"reports",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-report",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Отчет по тестированию 76c88e07-eefa-4fec-9b08-d8f4803073c4\",\r\n    \"project_name\": \"test23\",\r\n    \"test_project_id\": \"a71b9d66-df46-4fad-ad67-5d6284e10711\",\r\n    \"test_plan_id\": \"1e00b06c-66ea-40fe-b258-c1152a74ba06\",\r\n    \"test_run_id\": \"60e2cae9-3c7f-4a19-849c-c5dccbed08eb\",\r\n    \"path_report\": \"01H0ZGJS8267WSNP1Q0PF7R0S0\",\r\n    \"is_delete\": false,\r\n    \"createdAt\": \"2023-05-21T15:59:20.332Z\",\r\n    \"updatedAt\": \"2023-05-21T15:59:20.332Z\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/{{apiPrefix}}/{{versionApi}}/reports/16",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"{{apiPrefix}}",
+								"{{versionApi}}",
+								"reports",
+								"16"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-files-report",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/E:/otus/report-service/data/data2.tar"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{baseUrl}}/{{apiPrefix}}/{{versionApi}}/reports/16/files",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"{{apiPrefix}}",
+								"{{versionApi}}",
+								"reports",
+								"16",
+								"files"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "download-files-report",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/octet-stream",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "{{baseUrl}}/{{apiPrefix}}/{{versionApi}}/reports/91/files",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"{{apiPrefix}}",
+								"{{versionApi}}",
+								"reports",
+								"91",
+								"files"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-params-report",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Отчет по тестированию {{$randomUUID}}\",\r\n    \"test_project_id\": \"{{$randomUUID}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/{{apiPrefix}}/{{versionApi}}/reports/16",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"{{apiPrefix}}",
+								"{{versionApi}}",
+								"reports",
+								"16"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-report-by-id",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/{{apiPrefix}}/{{versionApi}}/reports/41",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"{{apiPrefix}}",
+								"{{versionApi}}",
+								"reports",
+								"41"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "configs",
+			"item": [
+				{
+					"name": "get-configs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/{{apiPrefix}}/{{versionApi}}/configs?limit=10&offset=0",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"{{apiPrefix}}",
+								"{{versionApi}}",
+								"configs"
+							],
+							"query": [
+								{
+									"key": "limit",
+									"value": "10"
+								},
+								{
+									"key": "offset",
+									"value": "0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all-configs",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/{{apiPrefix}}/{{versionApi}}/configs/all",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"{{apiPrefix}}",
+								"{{versionApi}}",
+								"configs",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-configs-by-id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/{{apiPrefix}}/{{versionApi}}/configs/1",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"{{apiPrefix}}",
+								"{{versionApi}}",
+								"configs",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-current-config",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/{{apiPrefix}}/{{versionApi}}/configs/current-config",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"{{apiPrefix}}",
+								"{{versionApi}}",
+								"configs",
+								"current-config"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "search-config",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"is_default_config\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/{{apiPrefix}}/{{versionApi}}/configs/search",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"{{apiPrefix}}",
+								"{{versionApi}}",
+								"configs",
+								"search"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-crons-time",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/{{apiPrefix}}/{{versionApi}}/configs/crons-time",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"{{apiPrefix}}",
+								"{{versionApi}}",
+								"configs",
+								"crons-time"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "create-config",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"newConfig{{$randomUUID}}\",\r\n    \"cron_clearing_report\": \"*/30 * * * * *\",\r\n    \"cron_clearing_garbage\": \"*/30 * * * * *\",\r\n    \"report_storage_period\": 100000,\r\n    \"current_config\": false,\r\n    \"is_default_config\": false,\r\n    \"is_auto_clean\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/{{apiPrefix}}/{{versionApi}}/configs",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"{{apiPrefix}}",
+								"{{versionApi}}",
+								"configs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-config",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"newConfig{{$randomUUID}}\",\r\n    \"cron_clearing_report\": \"0 */30 * * * *\",\r\n    \"cron_clearing_garbage\": \"0 */30 * * * *\",\r\n    \"report_storage_period\": 20000,\r\n    \"current_config\": false\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/{{apiPrefix}}/{{versionApi}}/configs/25",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"{{apiPrefix}}",
+								"{{versionApi}}",
+								"configs",
+								"25"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update-params-config",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"cron_clearing_report\": \"0 */30 * * * *\",\r\n    \"cron_clearing_garbage\": \"0 */30 * * * *\",\r\n    \"report_storage_period\": 2000000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/{{apiPrefix}}/{{versionApi}}/configs/25",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"{{apiPrefix}}",
+								"{{versionApi}}",
+								"configs",
+								"25"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get-switch-config-by-id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/{{apiPrefix}}/{{versionApi}}/configs/switch-config",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"{{apiPrefix}}",
+								"{{versionApi}}",
+								"configs",
+								"switch-config"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete-config-by-id",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"url": {
+							"raw": "{{baseUrl}}/{{apiPrefix}}/{{versionApi}}/configs/4",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"{{apiPrefix}}",
+								"{{versionApi}}",
+								"configs",
+								"4"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
